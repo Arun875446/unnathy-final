@@ -1,0 +1,178 @@
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Unnathi Lavender Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Lavender Primary Palette */
+    --background: 270 40% 98%;
+    --foreground: 240 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 15% 15%;
+
+    /* Lavender Primary - #A88BFA */
+    --primary: 261 91% 76%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 261 91% 66%;
+
+    /* Accent Purple */
+    --secondary: 280 50% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted Lavender */
+    --muted: 270 30% 92%;
+    --muted-foreground: 240 10% 45%;
+
+    /* Gold Accent */
+    --accent: 45 90% 60%;
+    --accent-foreground: 240 15% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 25% 88%;
+    --input: 270 25% 88%;
+    --ring: 261 91% 76%;
+
+    --radius: 0.75rem;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(261 91% 76%) 0%, hsl(280 50% 55%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(270 40% 98%) 0%, hsl(270 30% 95%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(270 30% 80% / 0.15);
+    --shadow-md: 0 4px 16px hsl(270 30% 70% / 0.2);
+    --shadow-lg: 0 8px 32px hsl(270 30% 60% / 0.25);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .offer-badge {
+    @apply bg-accent text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .product-card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .nav-link-active {
+    @apply text-primary font-semibold relative;
+  }
+  
+  .nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsl(var(--primary));
+    border-radius: 2px;
+  }
+  
+  .variant-badge {
+    @apply px-2 py-0.5 text-xs font-medium rounded-md bg-muted text-muted-foreground border border-border;
+  }
+
+  .nav-link-hover {
+    @apply hover:text-primary transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover rounded-lg px-6 py-3 font-medium transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:opacity-90 rounded-lg px-6 py-3 font-medium transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+
+  .animated-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    padding: 2px;
+    background: linear-gradient(90deg, 
+      hsl(261 91% 76%), 
+      hsl(280 50% 55%), 
+      hsl(261 91% 76%)
+    );
+    background-size: 200% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderGlow 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .animated-border:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes borderGlow {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 200% 0%;
+    }
+  }
+}
