@@ -13,7 +13,9 @@ const ProductDetail = () => {
   const [selectedVariant, setSelectedVariant] = useState(
     product?.variants[0] || ""
   );
-  const [selectedSize, setSelectedSize] = useState(product?.sizes[0] || "");
+  const [selectedSize, setSelectedSize] = useState(
+    product?.sizes[0] || { label: "", offerPrice: 0, originalPrice: 0 }
+  );
   const [currentImage, setCurrentImage] = useState(0);
 
   const imageRef = useRef<HTMLDivElement>(null);
@@ -110,11 +112,11 @@ const ProductDetail = () => {
 
           {/* Product Info */}
           <div ref={detailsRef}>
-            {product.hasOffer && product.offerText && (
+            {/* {product.hasOffer && product.offerText && (
               <span className="offer-badge inline-block mb-4">
                 {product.offerText}
               </span>
-            )}
+            )} */}
 
             <h1 className="text-4xl font-bold mb-3">{product.name}</h1>
             <p className="text-muted-foreground text-lg mb-6">
@@ -122,12 +124,12 @@ const ProductDetail = () => {
             </p>
 
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-3xl font-bold">₹{product.price}</span>
-              {product.originalPrice && (
-                <span className="text-xl text-muted-foreground line-through">
-                  ₹{product.originalPrice}
-                </span>
-              )}
+              <span className="text-3xl font-bold">
+                ₹{selectedSize.offerPrice}
+              </span>
+              <span className="text-xl text-muted-foreground line-through">
+                ₹{selectedSize.originalPrice}
+              </span>
             </div>
 
             <div className="border-t border-b border-border py-6 mb-6">
@@ -167,15 +169,15 @@ const ProductDetail = () => {
               <div className="flex gap-3 flex-wrap">
                 {product.sizes.map((size) => (
                   <button
-                    key={size}
+                    key={size.label}
                     onClick={() => setSelectedSize(size)}
                     className={`px-6 py-3 rounded-lg border-2 transition-all font-medium min-w-[60px] ${
-                      selectedSize === size
+                      selectedSize.label === size.label
                         ? "border-primary bg-primary text-primary-foreground"
                         : "border-border hover:border-primary"
                     }`}
                   >
-                    {size}
+                    {size.label}
                   </button>
                 ))}
               </div>

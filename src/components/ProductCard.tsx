@@ -24,14 +24,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
             />
 
             {/* Offer Badge */}
-            {product.hasOffer && product.offerText && (
+            {/* {product.hasOffer && product.offerText && (
               <div className="absolute top-4 left-4 offer-badge">
                 {product.offerText}
               </div>
-            )}
+            )} */}
 
             {/* Quick View Button */}
-            <Button
+            {/* <Button
               onClick={(e) => {
                 e.preventDefault();
                 setShowQuickView(true);
@@ -41,7 +41,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             >
               <Eye className="w-4 h-4 mr-2" />
               Quick View
-            </Button>
+            </Button> */}
           </div>
         </Link>
 
