@@ -1,23 +1,3 @@
-import redChiliPowder from "@/assets/products/red-chili-powder.jpg";
-import turmericPowder from "@/assets/products/turmeric-powder.jpg";
-import corianderPowder from "@/assets/products/coriander-powder.jpg";
-import garamMasala from "@/assets/products/garam-masala.jpg";
-import cuminPowder from "@/assets/products/cumin-powder.jpg";
-import blackPepper from "@/assets/products/black-pepper.jpg";
-import cardamom from "@/assets/products/cardamom.jpg";
-import cinnamon from "@/assets/products/cinnamon.jpg";
-import cloves from "@/assets/products/cloves.jpg";
-import fennel from "@/assets/products/fennel.jpg";
-import bayLeaves from "@/assets/products/bay-leaves.jpg";
-import mustardSeeds from "@/assets/products/mustard-seeds.jpg";
-import curryLeaves from "@/assets/products/curry-leaves.jpg";
-import fenugreek from "@/assets/products/fenugreek.jpg";
-import nutmeg from "@/assets/products/nutmeg.jpg";
-import saffron from "@/assets/products/saffron.jpg";
-import starAnise from "@/assets/products/star-anise.jpg";
-import asafoetida from "@/assets/products/asafoetida.jpg";
-import mangoPowder from "@/assets/products/mango-powder.jpg";
-import chatMasala from "@/assets/products/chat-masala.jpg";
 import mixOne from "@/assets/mix1.png";
 import mixTwo from "@/assets/mix2.png";
 import mixThree from "@/assets/mix3.png";
@@ -34,6 +14,24 @@ import KeepTop from "@/assets/products/tupperware/keeptopset.jpg";
 import bottle from "@/assets/products/tupperware/tupperwarebtl.webp";
 import fliptopbottle from "@/assets/products/tupperware/flip top.jpg";
 import sipper from "@/assets/products/tupperware/sipper bottle.jpg";
+import bowledover from "@/assets/products/tupperware/bowled over.jpg";
+import smartsavercont from "@/assets/products/tupperware/smatstorercont.jpg";
+import ricekeepercont from "@/assets/products/tupperware/ricekeepercon.jpg";
+import ricekeepercontTwo from "@/assets/products/tupperware/ricekeepercon2.jpg";
+import sipperblue from "@/assets/products/tupperware/sipperblu.jpg";
+import oilset from "@/assets/products/tupperware/oilcantupper.jpg";
+import oilsmall from "@/assets/products/tupperware/oilcantuppersmall.jpg";
+import oilsq from "@/assets/products/tupperware/oilcantuppersquare.jpg";
+import cubixset from "@/assets/products/tupperware/cubixsetc.jpg";
+import cubixsmall from "@/assets/products/tupperware/cubixsmallc.png";
+import cubixsmall2 from "@/assets/products/tupperware/cubixsmall2c.png";
+import coolnfresh from "@/assets/products/tupperware/coolnfresh.png";
+import onetouchtup from "@/assets/products/tupperware/onetouchtupc.png";
+import executivelunch from "@/assets/products/tupperware/execlunchbowlc.png";
+import lunchblackset from "@/assets/products/tupperware/lunchbagsetblack.png";
+import lunchsetmini from "@/assets/products/tupperware/lunchsetmini.png";
+import lunchgirls from "@/assets/products/tupperware/redlunchbaggirls.png";
+import spicecont from "@/assets/products/tupperware/spicecont.png";
 
 export interface Size {
   label: string;
@@ -360,7 +358,7 @@ The tight-fitting seal helps protect your food from the dry air, prevents spilla
     price: 1700,
     originalPrice: 2200,
     description: `Tupperware offers several small sipper bottles with straws, primarily focusing on durability, leak-proof design, and ease of use. Popular options like the steel 550ml model are praised for their robust build and detachable straw for cleaning. Plastic variants, such as the motivational 1.2L bottle, provide additional features like time markers and innovative flexi-straws.`,
-    images: [sipper, fliptopbottle],
+    images: [sipper, sipperblue],
     variants: ["multicolor"],
     sizes: [
       { label: "Set", offerPrice: 1700, originalPrice: 2200 },
@@ -368,6 +366,226 @@ The tight-fitting seal helps protect your food from the dry air, prevents spilla
       { label: "500ml", offerPrice: 550, originalPrice: 700 },
       { label: "800ml", offerPrice: 850, originalPrice: 1000 },
     ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+  {
+    id: "36",
+    name: "Bowled Over",
+    category: "Tupperware",
+    price: 800,
+    originalPrice: 1000,
+    description: `These compact bowls are just right for snacks, dips, desserts, cut fruits, or small meal portions. With their vibrant colors and snap-fit lids, they add a fun yet functional touch to your kitchen or lunch kit. Great for use at home or on the go, these bowls are stackable, spill-proof, and versatile-the perfect everyday storage solution.`,
+    images: [bowledover],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "Set of 4", offerPrice: 800, originalPrice: 1000 },
+      { label: "Single", offerPrice: 230, originalPrice: 250 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+  {
+    id: "37",
+    name: "Smart Saver Square",
+    category: "Tupperware",
+    price: 750,
+    originalPrice: 850,
+    description: `Ideal for storing all kinds of food items and they fit together so beautifully that you won’t be left with a wasted inch of space in your cupboard or fridge! Designed to maximise usage of shelf depth. They’re also stackable and nestable.`,
+    images: [smartsavercont],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "3L", offerPrice: 750, originalPrice: 850 },
+      { label: "5.4L", offerPrice: 850, originalPrice: 950 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "38",
+    name: "Smart Saver Oval",
+    category: "Tupperware",
+    price: 750,
+    originalPrice: 850,
+    description: `Ideal for storing all kinds of food items and they fit together so beautifully that you won’t be left with a wasted inch of space in your cupboard or fridge! Designed to maximise usage of shelf depth. They’re also stackable and nestable.`,
+    images: [smartsavercont],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "3L", offerPrice: 750, originalPrice: 850 },
+      { label: "5.4L", offerPrice: 850, originalPrice: 950 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "39",
+    name: "Rice keeper",
+    category: "Tupperware",
+    price: 4700,
+    originalPrice: 5800,
+    description: `The Tupperware Plastic Rice Keeper is the ultimate storage solution for your rice, designed to keep your grains fresh and free from moisture. With a capacity of 5 kg, 10kg & 20kg, it is perfect for families who need an efficient way to store bulk rice.`,
+    images: [ricekeepercontTwo, ricekeepercont],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "Set", offerPrice: 4700, originalPrice: 5800 },
+      { label: "5 Kg", offerPrice: 960, originalPrice: 1190 },
+      { label: "10 Kg", offerPrice: 1500, originalPrice: 1890 },
+      { label: "20 Kg", offerPrice: 2300, originalPrice: 2900 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "40",
+    name: "Magic Flow",
+    category: "Tupperware",
+    price: 1800,
+    originalPrice: 2200,
+    description: `The key feature is the specially designed slanted spout that ensures a smooth, even flow without dripping, which helps keep kitchen countertops clean and free from oil rings.A small hole or vent in the lid close to the spout allows any excess oil that may have split on the seal to flow back into the container, minimizing waste and mess.The body of the container is designed for an easy and comfortable grip, with an anti-slip base for better stability during use.`,
+    images: [oilset, oilsmall, oilsq],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "Set", offerPrice: 1800, originalPrice: 2200 },
+      { label: "small", offerPrice: 280, originalPrice: 350 },
+      { label: "440ml", offerPrice: 350, originalPrice: 400 },
+      { label: "440ml - square", offerPrice: 390, originalPrice: 440 },
+      { label: "650ml", offerPrice: 400, originalPrice: 495 },
+      { label: "1.1L", offerPrice: 475, originalPrice: 595 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "41",
+    name: "Cubix",
+    category: "Tupperware",
+    price: 1500,
+    originalPrice: 1950,
+    description: `The key feature is the specially designed slanted spout that ensures a smooth, even flow without dripping, which helps keep kitchen countertops clean and free from oil rings.A small hole or vent in the lid close to the spout allows any excess oil that may have split on the seal to flow back into the container, minimizing waste and mess.The body of the container is designed for an easy and comfortable grip, with an anti-slip base for better stability during use.`,
+    images: [cubixset, cubixsmall, cubixsmall2],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "Set", offerPrice: 1500, originalPrice: 1950 },
+      { label: "110ml", offerPrice: 150, originalPrice: 175 },
+      { label: "250ml", offerPrice: 200, originalPrice: 220 },
+      { label: "650ml", offerPrice: 340, originalPrice: 420 },
+      { label: "800ml", offerPrice: 470, originalPrice: 590 },
+      { label: "1L", offerPrice: 490, originalPrice: 620 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "42",
+    name: "Cool n Fresh",
+    category: "Tupperware",
+    price: 1250,
+    originalPrice: 1700,
+    description: `The Cool 'N' Fresh set is a specialized refrigerator storage solution designed to keep food, particularly cut fruits and vegetables, fresh for longer.`,
+    images: [coolnfresh],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 1250, originalPrice: 1700 },
+      { label: "450ml", offerPrice: 330, originalPrice: 450 },
+      { label: "700ml", offerPrice: 390, originalPrice: 500 },
+      { label: "1.8L", offerPrice: 680, originalPrice: 850 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "43",
+    name: "One Touch Canister",
+    category: "Tupperware",
+    price: 880,
+    originalPrice: 1000,
+    description: `The Tupperware One Touch Canister is designed for premium pantry organization. It features a specialized "One Touch" seal that allows you to close the container airtight with just a single press of your finger or palm in the center of the lid. It is widely used for keeping dry goods crisp and fresh for long periods. Signature "One Touch" Seal design allows you to close the container by simply pressing the center. A satisfying "click" confirms that it is locked and airtight.`,
+    images: [onetouchtup],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 880, originalPrice: 1000 },
+      { label: "530ml", offerPrice: 380, originalPrice: 420 },
+      { label: "700ml", offerPrice: 530, originalPrice: 600 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "44",
+    name: "Executive Lunch Bowl",
+    category: "Tupperware",
+    price: 380,
+    originalPrice: 480,
+    description: `The Tupperware Executive Lunch Bowl is designed specifically for carrying liquid-rich Indian meals like dals, sambar, rasam, and curries without a single drop spilling. It features Tupperware’s classic round seal, which is airtight and liquid-tight, ensuring your lunch bag stays clean and your food stays fresh.`,
+    images: [executivelunch],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 380, originalPrice: 480 },
+      { label: "180ml", offerPrice: 120, originalPrice: 170 },
+      { label: "450ml", offerPrice: 270, originalPrice: 320 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "45",
+    name: "Lunch Set",
+    category: "Tupperware",
+    price: 900,
+    originalPrice: 1300,
+    description: `Designed with superior liquid-tight seals that ensure your curries, dals, and gravies never leak, keeping your bag completely mess-free. The airtight lids preserve the original moisture and flavor of your food, ensuring your home-cooked meal tastes fresh at lunchtime., 
+    `,
+    images: [lunchblackset, lunchgirls, lunchsetmini],
+    variants: [
+      "Executive lunch set + 1 bag - 450ml *2 + 180ml * 2",
+      "Executive junior + 1 bag - 450ml + 180ml - ₹120",
+      "Classic lunch set + 1 bag -  Tropical cup 500ml * 2",
+      "Girls Day Out set + 1 bag - large handy bowl 300ml * 3",
+    ],
+    sizes: [
+      {
+        label: "Executive lunch set",
+        offerPrice: 900,
+        originalPrice: 1300,
+      },
+      { label: "Executive junior set", offerPrice: 650, originalPrice: 850 },
+      { label: "Classic lunch set", offerPrice: 800, originalPrice: 1000 },
+
+      { label: "Girls Day Out set", offerPrice: 1000, originalPrice: 1200 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "46",
+    name: "Spice It",
+    category: "Tupperware",
+    price: 950,
+    originalPrice: 1190,
+    description: `The Tupperware Spice It is a large, circular storage kit that features a virtually airtight outer container housing removable inner cups. It is specifically designed for daily cooking, allowing you to access all your frequently used spices (like turmeric, cumin, chili powder, and mustard) at once, while preventing them from clumping due to moisture.`,
+    images: [spicecont],
+    variants: ["multicolor"],
+    sizes: [{ label: "spice it", offerPrice: 950, originalPrice: 1190 }],
     hasOffer: true,
     offerText: "14% OFF",
     featured: true,
