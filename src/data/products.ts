@@ -2,7 +2,7 @@ import mixOne from "@/assets/mix1.png";
 import mixTwo from "@/assets/mix2.png";
 import mixThree from "@/assets/mix3.png";
 import mixFour from "@/assets/mix4.png";
-import SuperStore from "@/assets/products/tupperware/redfirstset.jpg";
+import SuperStore from "@/assets/products/tupperware/redfirstset.png";
 import blueBox from "@/assets/products/tupperware/bluesetgroup.jpg";
 import freezerMater from "@/assets/products/tupperware/purplefreezer.png";
 import blueFreezerMate from "@/assets/products/tupperware/bluefreezermate.jpg";
@@ -32,6 +32,10 @@ import lunchblackset from "@/assets/products/tupperware/lunchbagsetblack.png";
 import lunchsetmini from "@/assets/products/tupperware/lunchsetmini.png";
 import lunchgirls from "@/assets/products/tupperware/redlunchbaggirls.png";
 import spicecont from "@/assets/products/tupperware/spicecont.png";
+import chopper from "@/assets/products/tupperware/chopperc.png";
+import steamer from "@/assets/products/tupperware/steamer.png";
+import idlimaker from "@/assets/products/tupperware/idlimaker.png";
+import clearBowlSet from "@/assets/products/tupperware/clearbowlset.png";
 
 export interface Size {
   label: string;
@@ -201,7 +205,7 @@ Their modular, stackable design maximizes space efficiency while the signature s
     originalPrice: 350,
     description: `The Freezer Mates design enables optimal cold air circulation to pass around the container for quicker and more efficient freezing!
 Our unique Colour Control technology helps prevent staining on the inside of the container from high-staining ingredients like tomato sauce or turmeric, so your Freezer Mates will always look just as good as the day you bought them.
-The tight-fitting seal helps protect your food from the dry air, prevents spillage and odors.`,
+`,
     images: [blueFreezerMate],
     variants: ["Blue"],
     sizes: [
@@ -586,6 +590,70 @@ The tight-fitting seal helps protect your food from the dry air, prevents spilla
     images: [spicecont],
     variants: ["multicolor"],
     sizes: [{ label: "spice it", offerPrice: 950, originalPrice: 1190 }],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "47",
+    name: "Turbo Chopper",
+    category: "Tupperware",
+    price: 1800,
+    originalPrice: 2100,
+    description: `Cooking fast and mess free. Short on time to prepare your meal? Gain some precious minutes by using the new GEN II TURBO CHOPPER to chop, mince and stir like a chef.`,
+    images: [chopper],
+    variants: ["red"],
+    sizes: [{ label: "chopper", offerPrice: 1800, originalPrice: 2100 }],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "48",
+    name: "Steam IT",
+    category: "Tupperware",
+    price: 1200,
+    originalPrice: 1500,
+    description: `Transform your cooking experience with the Tupperware Multipurpose Steamer! Perfect for steaming everything from salads and boiled vegetables to idlis and momos, this steamer is ergonomically designed to make meal prep quicker and simpler.`,
+    images: [steamer],
+    variants: ["red"],
+    sizes: [{ label: "steamer", offerPrice: 1200, originalPrice: 1500 }],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+  {
+    id: "49",
+    name: "Multicook",
+    category: "Tupperware",
+    price: 1800,
+    originalPrice: 2100,
+    description: `The Tupperware Multi Cook set is an excellent buy that can help you simplify your day-to-day work in the kitchen. From steaming to straining, this Multi Cook set by Tupperware allows you to churn out mouth-watering recipes in a smart, yet healthy way.`,
+    images: [idlimaker],
+    variants: ["multicolor"],
+    sizes: [{ label: "multicook", offerPrice: 1800, originalPrice: 2100 }],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "50",
+    name: "Clear Bowl",
+    category: "Tupperware",
+    price: 1400,
+    originalPrice: 1750,
+    description: `Airtight and Spill-Proof: The lid on the bowl is airtight, keeping food fresh for longer. It is also liquid-tight, making it ideal to store, carry and serve wet food items.`,
+    images: [clearBowlSet],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 1400, originalPrice: 1750 },
+      { label: "480ml", offerPrice: 360, originalPrice: 450 },
+      { label: "600ml", offerPrice: 500, originalPrice: 625 },
+      { label: "810ml", offerPrice: 600, originalPrice: 750 },
+    ],
     hasOffer: true,
     offerText: "14% OFF",
     featured: true,
