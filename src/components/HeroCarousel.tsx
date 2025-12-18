@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import banner1 from "@/assets/hero-banner-1.jpg";
-import banner2 from "@/assets/hero-banner-2.jpg";
-import banner3 from "@/assets/hero-banner-3.jpg";
+import banner1 from "@/assets/banner/Unnathy.gif";
+import banner2 from "@/assets/banner/Unnathy (1).gif";
+import banner3 from "@/assets/banner/Unnathy (2).gif";
 import gsap from "gsap";
 
 const banners = [
@@ -37,7 +37,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       goToNextSlide();
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
@@ -59,12 +59,16 @@ const HeroCarousel = () => {
 
     // Fade out current with zoom
     if (currentImageRef.current) {
-      tl.to(currentImageRef.current, {
-        opacity: 0,
-        scale: 1.1,
-        duration: 1.2,
-        ease: "power2.inOut",
-      }, 0);
+      tl.to(
+        currentImageRef.current,
+        {
+          opacity: 0,
+          scale: 1.1,
+          duration: 1.2,
+          ease: "power2.inOut",
+        },
+        0
+      );
     }
 
     // Fade in next with zoom
@@ -114,12 +118,16 @@ const HeroCarousel = () => {
     });
 
     if (currentImageRef.current) {
-      tl.to(currentImageRef.current, {
-        opacity: 0,
-        scale: 1.1,
-        duration: 1.2,
-        ease: "power2.inOut",
-      }, 0);
+      tl.to(
+        currentImageRef.current,
+        {
+          opacity: 0,
+          scale: 1.1,
+          duration: 1.2,
+          ease: "power2.inOut",
+        },
+        0
+      );
     }
 
     if (nextImageRef.current) {
@@ -166,12 +174,16 @@ const HeroCarousel = () => {
     });
 
     if (currentImageRef.current) {
-      tl.to(currentImageRef.current, {
-        opacity: 0,
-        scale: 1.1,
-        duration: 1.2,
-        ease: "power2.inOut",
-      }, 0);
+      tl.to(
+        currentImageRef.current,
+        {
+          opacity: 0,
+          scale: 1.1,
+          duration: 1.2,
+          ease: "power2.inOut",
+        },
+        0
+      );
     }
 
     if (nextImageRef.current) {
@@ -209,10 +221,7 @@ const HeroCarousel = () => {
       {/* Image Layers - Stacked for crossfade */}
       <div className="absolute inset-0">
         {/* Current Slide */}
-        <div
-          ref={currentImageRef}
-          className="absolute inset-0 w-full h-full"
-        >
+        <div ref={currentImageRef} className="absolute inset-0 w-full h-full">
           <img
             src={banners[currentSlide].image}
             alt={banners[currentSlide].title}
@@ -233,12 +242,12 @@ const HeroCarousel = () => {
         </div>
 
         {/* Cinematic Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" /> */}
       </div>
 
       {/* Text Content */}
-      <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16 lg:px-24 xl:px-32 z-10">
+      {/* <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16 lg:px-24 xl:px-32 z-10">
         <div ref={textRef} className="max-w-3xl">
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 text-white leading-tight tracking-tight">
             {banners[currentSlide].title}
@@ -248,7 +257,7 @@ const HeroCarousel = () => {
           </p>
           <div className="h-1 w-24 bg-primary rounded-full" />
         </div>
-      </div>
+      </div> */}
 
       {/* Navigation Arrows - Modern Style */}
       <button
@@ -290,9 +299,11 @@ const HeroCarousel = () => {
 
       {/* Slide Counter - Cinematic Touch */}
       <div className="absolute bottom-8 md:bottom-12 right-6 md:right-8 text-white/80 font-light text-sm md:text-base tracking-widest z-20">
-        <span className="text-2xl font-medium">{String(currentSlide + 1).padStart(2, '0')}</span>
+        <span className="text-2xl font-medium">
+          {String(currentSlide + 1).padStart(2, "0")}
+        </span>
         <span className="mx-2">/</span>
-        <span>{String(banners.length).padStart(2, '0')}</span>
+        <span>{String(banners.length).padStart(2, "0")}</span>
       </div>
     </div>
   );

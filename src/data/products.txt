@@ -31,6 +31,7 @@ import executivelunch from "@/assets/products/tupperware/execlunchbowlc.png";
 import lunchblackset from "@/assets/products/tupperware/lunchbagsetblack.png";
 import lunchsetmini from "@/assets/products/tupperware/lunchsetmini.png";
 import lunchgirls from "@/assets/products/tupperware/redlunchbaggirls.png";
+import spicecont from "@/assets/products/tupperware/spicecont.png";
 
 export interface Size {
   label: string;
@@ -488,17 +489,18 @@ The tight-fitting seal helps protect your food from the dry air, prevents spilla
 
   {
     id: "42",
-    name: "Executive Lunch Bowl",
+    name: "Cool n Fresh",
     category: "Tupperware",
-    price: 380,
-    originalPrice: 480,
-    description: `The Tupperware Executive Lunch Bowl is designed specifically for carrying liquid-rich Indian meals like dals, sambar, rasam, and curries without a single drop spilling. It features Tupperware’s classic round seal, which is airtight and liquid-tight, ensuring your lunch bag stays clean and your food stays fresh.`,
-    images: [executivelunch],
+    price: 1250,
+    originalPrice: 1700,
+    description: `The Cool 'N' Fresh set is a specialized refrigerator storage solution designed to keep food, particularly cut fruits and vegetables, fresh for longer.`,
+    images: [coolnfresh],
     variants: ["multicolor"],
     sizes: [
-      { label: "set", offerPrice: 380, originalPrice: 480 },
-      { label: "180ml", offerPrice: 120, originalPrice: 170 },
-      { label: "450ml", offerPrice: 270, originalPrice: 320 },
+      { label: "set", offerPrice: 1250, originalPrice: 1700 },
+      { label: "450ml", offerPrice: 330, originalPrice: 450 },
+      { label: "700ml", offerPrice: 390, originalPrice: 500 },
+      { label: "1.8L", offerPrice: 680, originalPrice: 850 },
     ],
     hasOffer: true,
     offerText: "14% OFF",
@@ -526,6 +528,25 @@ The tight-fitting seal helps protect your food from the dry air, prevents spilla
 
   {
     id: "44",
+    name: "Executive Lunch Bowl",
+    category: "Tupperware",
+    price: 380,
+    originalPrice: 480,
+    description: `The Tupperware Executive Lunch Bowl is designed specifically for carrying liquid-rich Indian meals like dals, sambar, rasam, and curries without a single drop spilling. It features Tupperware’s classic round seal, which is airtight and liquid-tight, ensuring your lunch bag stays clean and your food stays fresh.`,
+    images: [executivelunch],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 380, originalPrice: 480 },
+      { label: "180ml", offerPrice: 120, originalPrice: 170 },
+      { label: "450ml", offerPrice: 270, originalPrice: 320 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "45",
     name: "Lunch Set",
     category: "Tupperware",
     price: 900,
@@ -550,6 +571,21 @@ The tight-fitting seal helps protect your food from the dry air, prevents spilla
 
       { label: "Girls Day Out set", offerPrice: 1000, originalPrice: 1200 },
     ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "46",
+    name: "Spice It",
+    category: "Tupperware",
+    price: 950,
+    originalPrice: 1190,
+    description: `The Tupperware Spice It is a large, circular storage kit that features a virtually airtight outer container housing removable inner cups. It is specifically designed for daily cooking, allowing you to access all your frequently used spices (like turmeric, cumin, chili powder, and mustard) at once, while preventing them from clumping due to moisture.`,
+    images: [spicecont],
+    variants: ["multicolor"],
+    sizes: [{ label: "spice it", offerPrice: 950, originalPrice: 1190 }],
     hasOffer: true,
     offerText: "14% OFF",
     featured: true,
