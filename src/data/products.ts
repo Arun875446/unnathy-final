@@ -1,8 +1,8 @@
-import mixOne from "@/assets/mix1.png";
-import mixTwo from "@/assets/mix2.png";
-import mixThree from "@/assets/mix3.png";
-import mixFour from "@/assets/mix4.png";
-import SuperStore from "@/assets/products/tupperware/redfirstset.png";
+import mixOne from "@/assets/geminimix3.png";
+import mixTwo from "@/assets/geminimix4.png";
+import mixThree from "@/assets/geminimix1.png";
+import mixFour from "@/assets/geminimix2.png";
+import SuperStore from "@/assets/products/tupperware/geminisuperstorer.png";
 import blueBox from "@/assets/products/tupperware/bluesetgroup.jpg";
 import freezerMater from "@/assets/products/tupperware/purplefreezer.png";
 import blueFreezerMate from "@/assets/products/tupperware/bluefreezermate.jpg";
@@ -12,14 +12,14 @@ import ssBowl from "@/assets/products/tupperware/ssbowl.png";
 import buddySet from "@/assets/products/tupperware/buddyset.webp";
 import KeepTop from "@/assets/products/tupperware/keeptopset.jpg";
 import bottle from "@/assets/products/tupperware/tupperwarebtl.webp";
-import fliptopbottle from "@/assets/products/tupperware/flip top.jpg";
+import fliptopbottle from "@/assets/products/tupperware/gemfliptopbottle.png";
 import sipper from "@/assets/products/tupperware/sipper bottle.jpg";
 import bowledover from "@/assets/products/tupperware/bowled over.jpg";
 import smartsavercont from "@/assets/products/tupperware/smatstorercont.jpg";
 import ricekeepercont from "@/assets/products/tupperware/ricekeepercon.jpg";
 import ricekeepercontTwo from "@/assets/products/tupperware/ricekeepercon2.jpg";
 import sipperblue from "@/assets/products/tupperware/sipperblu.jpg";
-import oilset from "@/assets/products/tupperware/oilcantupper.jpg";
+import oilset from "@/assets/products/tupperware/geminioilcan.png";
 import oilsmall from "@/assets/products/tupperware/oilcantuppersmall.jpg";
 import oilsq from "@/assets/products/tupperware/oilcantuppersquare.jpg";
 import cubixset from "@/assets/products/tupperware/cubixsetc.jpg";
@@ -36,6 +36,12 @@ import chopper from "@/assets/products/tupperware/chopperc.png";
 import steamer from "@/assets/products/tupperware/steamer.png";
 import idlimaker from "@/assets/products/tupperware/idlimaker.png";
 import clearBowlSet from "@/assets/products/tupperware/clearbowlset.png";
+import accessmate from "@/assets/products/tupperware/accessmate.png";
+import tropicaltwins from "@/assets/products/tupperware/tropicaltwins.png";
+import tumbler from "@/assets/products/tupperware/tumbler.png";
+import smartovalsettup from "@/assets/products/tupperware/smartsaveroval.png";
+import ovalsetgem from "@/assets/products/tupperware/ovalsetgem.png";
+import siliconBag from "@/assets/products/tupperware/tupperwaresiliconbag.png";
 
 export interface Size {
   label: string;
@@ -224,8 +230,8 @@ Our unique Colour Control technology helps prevent staining on the inside of the
     category: "Tupperware",
     price: 2400,
     originalPrice: 2800,
-    description: `MM Oval Set converts cluttered cabinets in your kitchen to highly organised modular spaces. The transparent design and the coloured lids makes it easy and convenient to identify the contents in the box with ease. These containers could be used to store fried snacks, dry fruits, millets, cereals, flour, various batters and other food that are a part of your daily routine.`,
-    images: [redContainer],
+    description: `MM Oval Set transparent design and the coloured lids makes it easy and convenient to identify the contents in the box with ease. These containers could be used to store fried snacks, dry fruits, millets, cereals, flour, various batters and other food that are a part of your daily routine.`,
+    images: [ovalsetgem, redContainer],
     variants: ["Transparent"],
     sizes: [
       { label: "Set", offerPrice: 2400, originalPrice: 2800 },
@@ -243,7 +249,7 @@ Our unique Colour Control technology helps prevent staining on the inside of the
     category: "Tupperware",
     price: 550,
     originalPrice: 700,
-    description: `Tupperware's MM Round Spice Storer Set of containers is all you need to organize the spice storage in your kitchen. Do you like to have whole spices handy for throwing into that biryani? Do you like to grind a batch of garam masala at home and store it for future use? These containers will cater to all your spice-whims. With their airtight seals, they keep whole and ground spices fresh for longer. These 8 containers can easily accommodate all the spices you need for everyday cooking.`,
+    description: `Tupperware's MM Round Spice Storer Set of containers is all you need to organize the spice storage in your kitchen. Do you like to have whole spices handy for throwing into that biryani? Do you like to grind a batch of garam masala at home and store it for future use? These containers will cater to all your spice-whims.`,
     images: [mmRoundRed],
     variants: ["Transparent"],
     sizes: [
@@ -361,7 +367,7 @@ Our unique Colour Control technology helps prevent staining on the inside of the
     category: "Tupperware",
     price: 1700,
     originalPrice: 2200,
-    description: `Tupperware offers several small sipper bottles with straws, primarily focusing on durability, leak-proof design, and ease of use. Popular options like the steel 550ml model are praised for their robust build and detachable straw for cleaning. Plastic variants, such as the motivational 1.2L bottle, provide additional features like time markers and innovative flexi-straws.`,
+    description: `Tupperware offers several small sipper bottles with straws, primarily focusing on durability, leak-proof design, and ease of use. Popular options like the steel 550ml model are praised for their robust build and detachable straw for cleaning.`,
     images: [sipper, sipperblue],
     variants: ["multicolor"],
     sizes: [
@@ -416,11 +422,13 @@ Our unique Colour Control technology helps prevent staining on the inside of the
     price: 750,
     originalPrice: 850,
     description: `Ideal for storing all kinds of food items and they fit together so beautifully that you won’t be left with a wasted inch of space in your cupboard or fridge! Designed to maximise usage of shelf depth. They’re also stackable and nestable.`,
-    images: [smartsavercont],
+    images: [smartovalsettup],
     variants: ["multicolor"],
     sizes: [
-      { label: "3L", offerPrice: 750, originalPrice: 850 },
-      { label: "5.4L", offerPrice: 850, originalPrice: 950 },
+      { label: "500ml", offerPrice: 750, originalPrice: 850 },
+      { label: "1.1L", offerPrice: 750, originalPrice: 850 },
+      { label: "1.7L", offerPrice: 750, originalPrice: 850 },
+      { label: "2.3L", offerPrice: 850, originalPrice: 950 },
     ],
     hasOffer: true,
     offerText: "14% OFF",
@@ -453,7 +461,7 @@ Our unique Colour Control technology helps prevent staining on the inside of the
     category: "Tupperware",
     price: 1800,
     originalPrice: 2200,
-    description: `The key feature is the specially designed slanted spout that ensures a smooth, even flow without dripping, which helps keep kitchen countertops clean and free from oil rings.A small hole or vent in the lid close to the spout allows any excess oil that may have split on the seal to flow back into the container, minimizing waste and mess.The body of the container is designed for an easy and comfortable grip, with an anti-slip base for better stability during use.`,
+    description: `The specially designed slanted spout that ensures a smooth, even flow without dripping, which helps keep kitchen countertops clean and free from oil rings.A small hole or vent in the lid close to the spout allows any excess oil that may have split on the seal to flow back into the container, minimizing waste and mess.`,
     images: [oilset, oilsmall, oilsq],
     variants: ["multicolor"],
     sizes: [
@@ -475,7 +483,7 @@ Our unique Colour Control technology helps prevent staining on the inside of the
     category: "Tupperware",
     price: 1500,
     originalPrice: 1950,
-    description: `The key feature is the specially designed slanted spout that ensures a smooth, even flow without dripping, which helps keep kitchen countertops clean and free from oil rings.A small hole or vent in the lid close to the spout allows any excess oil that may have split on the seal to flow back into the container, minimizing waste and mess.The body of the container is designed for an easy and comfortable grip, with an anti-slip base for better stability during use.`,
+    description: `Organize your ingredients and make your prep simpler with these mini-sized practical containers. They’re ideal for storage of cut fruits and vegetables and other ingredients while you prepare for a meal. They can also be used to store leftovers in the fridge or to carry food on the go.`,
     images: [cubixset, cubixsmall, cubixsmall2],
     variants: ["multicolor"],
     sizes: [
@@ -517,7 +525,7 @@ Our unique Colour Control technology helps prevent staining on the inside of the
     category: "Tupperware",
     price: 880,
     originalPrice: 1000,
-    description: `The Tupperware One Touch Canister is designed for premium pantry organization. It features a specialized "One Touch" seal that allows you to close the container airtight with just a single press of your finger or palm in the center of the lid. It is widely used for keeping dry goods crisp and fresh for long periods. Signature "One Touch" Seal design allows you to close the container by simply pressing the center. A satisfying "click" confirms that it is locked and airtight.`,
+    description: `"One Touch" seal that allows you to close the container airtight with just a single press of your finger or palm in the center of the lid. It is widely used for keeping dry goods crisp and fresh for long periods. Signature "One Touch" Seal design allows you to close the container by simply pressing the center. A satisfying "click" confirms that it is locked and airtight.`,
     images: [onetouchtup],
     variants: ["multicolor"],
     sizes: [
@@ -653,6 +661,82 @@ Our unique Colour Control technology helps prevent staining on the inside of the
       { label: "480ml", offerPrice: 360, originalPrice: 450 },
       { label: "600ml", offerPrice: 500, originalPrice: 625 },
       { label: "810ml", offerPrice: 600, originalPrice: 750 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "51",
+    name: "Access Mate",
+    category: "Tupperware",
+    price: 3700,
+    originalPrice: 4200,
+    description: `Mess-free and space saving storage solution that encourage air circulation and keep the contents fresh. These containers come in multicolor and sit perfectly on your kitchen counter top for easy access to onion, garlic, ginger while cooking. Due to their unique opening mechanism they can be used even when they are stacked.`,
+    images: [accessmate],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 3700, originalPrice: 4200 },
+      { label: "3L", offerPrice: 1300, originalPrice: 1500 },
+      { label: "5.5L", offerPrice: 2400, originalPrice: 2700 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "52",
+    name: "Tropical Twins",
+    category: "Tupperware",
+    price: 650,
+    originalPrice: 800,
+    description: `Boldly store gravies, purees, curries and soups in these tightly lidded containers without fear of messing up the fridge. And the best thing – these containers can be carried while you’re on the move without worrying about spills!.`,
+    images: [tropicaltwins],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 650, originalPrice: 800 },
+      { label: "200ml", offerPrice: 180, originalPrice: 200 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "53",
+    name: "12OZ Tumbler",
+    category: "Tupperware",
+    price: 700,
+    originalPrice: 900,
+    description: `The Tumblers are fitted with a unique seal which is liquid tight Ergonomically design makes them easy to hold and open. Good for both serving and storing carbonated water or sodas and carry on the go.`,
+    images: [tumbler],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 700, originalPrice: 900 },
+      { label: "330ml", offerPrice: 200, originalPrice: 250 },
+    ],
+    hasOffer: true,
+    offerText: "14% OFF",
+    featured: true,
+  },
+
+  {
+    id: "54",
+    name: "Silicone bag",
+    category: "Tupperware",
+    price: 4900,
+    originalPrice: 6200,
+    description: `Our versatile and reusable silicone bags allow you to store, cook, freeze, defrost, and organize with confidence, without having to compromise your lifestyle.You can trust their durability and long-term reliability. Easily go from refrigerator to freezer, cooking, or hiking without compromising your lifestyle.`,
+    images: [siliconBag],
+    variants: ["multicolor"],
+    sizes: [
+      { label: "set", offerPrice: 4900, originalPrice: 6200 },
+      { label: "slim-small", offerPrice: 710, originalPrice: 890 },
+      { label: "small", offerPrice: 950, originalPrice: 1200 },
+      { label: "medium", offerPrice: 1400, originalPrice: 1800 },
+      { label: "large", offerPrice: 1800, originalPrice: 2250 },
     ],
     hasOffer: true,
     offerText: "14% OFF",
