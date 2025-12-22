@@ -42,6 +42,10 @@ import tumbler from "@/assets/products/tupperware/tumbler.png";
 import smartovalsettup from "@/assets/products/tupperware/smartsaveroval.png";
 import ovalsetgem from "@/assets/products/tupperware/ovalsetgem.png";
 import siliconBag from "@/assets/products/tupperware/tupperwaresiliconbag.png";
+import turmericpowder from "@/assets/products/masala/turmeric powder.png";
+import gravyMasala from "@/assets/products/masala/gravy masala.png";
+import garamMasala from "@/assets/products/masala/garam masala.png";
+import chilliPowder from "@/assets/products/masala/chilli powder.png";
 
 export interface Size {
   label: string;
@@ -142,6 +146,81 @@ Note: A minimum of two products must be ordered, with at least 200g each.`,
     offerText: "37% OFF",
     featured: true,
   },
+  {
+    id: "55",
+    name: "Turmeric Powder",
+    category: "Masala",
+    price: 120,
+    originalPrice: 200,
+    description: `Unnathy Turmeric Powder is a premium spice known for its deep, earthy flavor, vibrant color, and numerous health benefits. Made from high-quality turmeric roots, this powder is a versatile ingredient in kitchens around the world.`,
+    images: [turmericpowder],
+    variants: ["Turmeric"],
+    sizes: [
+      { label: "500g", offerPrice: 120, originalPrice: 200 },
+      { label: "100g", offerPrice: 35, originalPrice: 40 },
+    ],
+    hasOffer: true,
+    offerText: "37% OFF",
+    featured: true,
+  },
+
+  {
+    id: "56",
+    name: "Gravy Masala",
+    category: "Masala",
+    price: 180,
+    originalPrice: 280,
+    description: `Unnathy Gravy Masala is a premium spice blend meticulously crafted to deliver the authentic, rich texture and aromatic depth of restaurant-style Indian gravies. This 100% natural mix is free from artificial colors and preservatives, ensuring a pure and healthy culinary experience.`,
+    images: [gravyMasala],
+    variants: ["Gravy Masala"],
+    sizes: [
+      { label: "500g", offerPrice: 180, originalPrice: 280 },
+      { label: "200g", offerPrice: 90, originalPrice: 110 },
+      { label: "100g", offerPrice: 50, originalPrice: 60 },
+    ],
+    hasOffer: true,
+    offerText: "37% OFF",
+    featured: true,
+  },
+
+  {
+    id: "57",
+    name: "Garam Masala",
+    category: "Masala",
+    price: 120,
+    originalPrice: 170,
+    description: `Unnathy Garam Masala is a signature blend of hand-picked, expertly roasted whole spices that delivers an intense, warming aroma to every dish. Our 100% natural formula features premium black pepper, cloves, cinnamon, star anise etc to ensure authentic flavor without any artificial additives.`,
+    images: [garamMasala],
+    variants: ["Garam Masala"],
+    sizes: [
+      { label: "500g", offerPrice: 120, originalPrice: 170 },
+      { label: "200g", offerPrice: 70, originalPrice: 80 },
+      { label: "100g", offerPrice: 35, originalPrice: 40 },
+    ],
+    hasOffer: true,
+    offerText: "37% OFF",
+    featured: true,
+  },
+
+  {
+    id: "58",
+    name: "Chilli Powder",
+    category: "Masala",
+    price: 140,
+    originalPrice: 200,
+    description: `Unnathy chili powder derives its essence from the finest quality red chillies. Packed with the utmost care, we ensure that it retains its freshness, colour and flavour.`,
+    images: [chilliPowder],
+    variants: ["Chilli Powder"],
+    sizes: [
+      { label: "500g", offerPrice: 140, originalPrice: 200 },
+      { label: "200g", offerPrice: 70, originalPrice: 80 },
+      { label: "100g", offerPrice: 35, originalPrice: 40 },
+    ],
+    hasOffer: true,
+    offerText: "37% OFF",
+    featured: true,
+  },
+
   {
     id: "24",
     name: "Tupperware Super Storer Set",
