@@ -1,53 +1,49 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import gsap from "gsap";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
+import { prefersReducedMotion } from "@/lib/motion";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === id);
+  const product = products.find((item) => item.id === id);
 
-  const [selectedVariant, setSelectedVariant] = useState(
-    product?.variants[0] || ""
-  );
-  const [selectedSize, setSelectedSize] = useState(
-    product?.sizes[0] || { label: "", offerPrice: 0, originalPrice: 0 }
-  );
+  const [selectedVariant, setSelectedVariant] = useState(product?.variants[0] ?? "");
+  const [selectedSize, setSelectedSize] = useState(product?.sizes[0] ?? { label: "", offerPrice: 0, originalPrice: 0 });
   const [currentImage, setCurrentImage] = useState(0);
 
   const imageRef = useRef<HTMLDivElement>(null);
   const detailsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (imageRef.current && detailsRef.current) {
-      gsap.fromTo(
-        imageRef.current,
-        { x: -50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-      );
+    if (prefersReducedMotion()) {
+      return;
+    }
 
+    const context = gsap.context(() => {
+      if (!imageRef.current || !detailsRef.current) {
+        return;
+      }
+
+      gsap.fromTo(imageRef.current, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.66, ease: "power3.out" });
       gsap.fromTo(
         detailsRef.current.children,
-        { x: 50, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: "power3.out",
-        }
+        { x: 24, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.56, stagger: 0.07, ease: "power3.out" }
       );
-    }
+    });
+
+    return () => context.revert();
   }, []);
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Product Not Found</h1>
+          <h1 className="mb-4">Product Not Found</h1>
           <Link to="/products">
             <Button className="btn-primary">Back to Products</Button>
           </Link>
@@ -56,53 +52,48 @@ const ProductDetail = () => {
     );
   }
 
-  const relatedProducts = products
-    .filter((p) => p.category === product.category && p.id !== product.id)
-    .slice(0, 4);
+  const relatedProducts = products.filter((item) => item.category === product.category && item.id !== product.id).slice(0, 4);
 
   return (
     <div className="min-h-screen">
-      {/* Breadcrumb */}
-      <div className="container mx-auto px-4 py-6">
-        <Link
-          to="/products"
-          className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors"
-        >
-          <ChevronLeft size={20} />
+      <div className="layout-container py-5 sm:py-6">
+        <Link to="/products" className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+          <ChevronLeft size={18} />
           Back to Products
         </Link>
       </div>
 
-      {/* Product Details */}
-      <section className="container mx-auto px-4 pb-16">
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Images */}
+      <section className="layout-container pb-14 sm:pb-16">
+        <div className="royal-surface grid gap-8 p-4 sm:p-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10 lg:p-8">
           <div ref={imageRef}>
-            <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-white pt-2">
+            <div className="mb-4 aspect-square overflow-hidden rounded-xl border border-border/70 bg-white">
               <img
                 src={product.images[currentImage]}
                 alt={product.name}
-                className="w-[100%] h-[100%] object-cover"
+                className="h-full w-full object-cover"
+                loading="eager"
+                decoding="async"
               />
             </div>
 
-            {/* Image Thumbnails */}
             {product.images.length > 1 && (
-              <div className="flex gap-3">
+              <div className="flex gap-2 overflow-x-auto pb-2 sm:gap-3">
                 {product.images.map((image, index) => (
                   <button
-                    key={index}
+                    key={`${product.id}-image-${index}`}
+                    type="button"
                     onClick={() => setCurrentImage(index)}
-                    className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      currentImage === index
-                        ? "border-primary"
-                        : "border-border"
+                    className={`h-16 w-16 shrink-0 overflow-hidden rounded-lg border-2 transition-all sm:h-20 sm:w-20 ${
+                      currentImage === index ? "border-primary" : "border-border"
                     }`}
+                    aria-label={`Show image ${index + 1}`}
                   >
                     <img
                       src={image}
-                      alt={`${product.name} ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      alt={`${product.name} preview ${index + 1}`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </button>
                 ))}
@@ -110,49 +101,31 @@ const ProductDetail = () => {
             )}
           </div>
 
-          {/* Product Info */}
-          <div ref={detailsRef}>
-            {/* {product.hasOffer && product.offerText && (
-              <span className="offer-badge inline-block mb-4">
-                {product.offerText}
-              </span>
-            )} */}
+          <div ref={detailsRef} className="self-start lg:sticky lg:top-24">
+            <span className="section-eyebrow">{product.category}</span>
+            <h1 className="mt-3">{product.name}</h1>
+            <p className="mt-2 text-sm text-muted-foreground sm:text-base">Check the options below and pick what fits your requirement.</p>
 
-            <h1 className="text-4xl font-bold mb-3">{product.name}</h1>
-            <p className="text-muted-foreground text-lg mb-6">
-              {product.category}
-            </p>
-
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-3xl font-bold">
-                ₹{selectedSize.offerPrice}
-              </span>
-              <span className="text-xl text-muted-foreground line-through">
-                ₹{selectedSize.originalPrice}
-              </span>
+            <div className="mt-5 flex items-center gap-3 sm:gap-4">
+              <span className="text-2xl font-bold sm:text-3xl">Rs {selectedSize.offerPrice}</span>
+              <span className="text-base text-muted-foreground line-through sm:text-xl">Rs {selectedSize.originalPrice}</span>
             </div>
 
-            <div className="border-t border-b border-border py-6 mb-6">
-              <h2 className="font-semibold text-lg mb-3">Description</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                {product.description}
-              </p>
+            <div className="my-6 border-y border-border py-5 sm:py-6">
+              <h2 className="text-2xl">Description</h2>
+              <p className="mt-2 leading-relaxed text-muted-foreground">{product.description}</p>
             </div>
 
-            {/* Variants */}
-            <div className="mb-8">
-              <label className="block text-sm font-medium mb-3">
-                Select Variant
-              </label>
-              <div className="flex gap-3 flex-wrap">
+            <div className="mb-7">
+              <label className="mb-3 block text-sm font-semibold">Select Variant</label>
+              <div className="flex flex-wrap gap-2.5 sm:gap-3">
                 {product.variants.map((variant) => (
                   <button
                     key={variant}
+                    type="button"
                     onClick={() => setSelectedVariant(variant)}
-                    className={`px-6 py-3 rounded-lg border-2 transition-all font-medium ${
-                      selectedVariant === variant
-                        ? "border-primary bg-primary text-primary-foreground"
-                        : "border-border hover:border-primary"
+                    className={`min-h-11 rounded-lg border px-4 py-2 text-sm font-semibold transition-colors sm:px-6 ${
+                      selectedVariant === variant ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card hover:border-primary"
                     }`}
                   >
                     {variant}
@@ -161,20 +134,18 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            {/* Sizes */}
-            <div className="mb-8">
-              <label className="block text-sm font-medium mb-3">
-                Select Size
-              </label>
-              <div className="flex gap-3 flex-wrap">
+            <div className="mb-7">
+              <label className="mb-3 block text-sm font-semibold">Select Size</label>
+              <div className="flex flex-wrap gap-2.5 sm:gap-3">
                 {product.sizes.map((size) => (
                   <button
-                    key={size.label}
+                    key={`${product.id}-${size.label}`}
+                    type="button"
                     onClick={() => setSelectedSize(size)}
-                    className={`px-6 py-3 rounded-lg border-2 transition-all font-medium min-w-[60px] ${
+                    className={`min-h-11 min-w-[64px] rounded-lg border px-4 py-2 text-sm font-semibold transition-colors sm:px-6 ${
                       selectedSize.label === size.label
                         ? "border-primary bg-primary text-primary-foreground"
-                        : "border-border hover:border-primary"
+                        : "border-border bg-card hover:border-primary"
                     }`}
                   >
                     {size.label}
@@ -183,19 +154,19 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <p className="text-muted-foreground text-sm mb-6">
-              * This is a catalog website. Products are for viewing only.
+            <p className="text-sm text-muted-foreground">
+              This is a catalog website. Contact us for final price confirmation and delivery details.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <section className="bg-muted py-16">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8">You May Also Like</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section className="layout-section-tight">
+          <div className="layout-container">
+            <span className="section-eyebrow">Related Products</span>
+            <h2 className="mt-4">You May Also Like</h2>
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
               {relatedProducts.map((relatedProduct) => (
                 <ProductCard key={relatedProduct.id} product={relatedProduct} />
               ))}

@@ -46,6 +46,9 @@ import turmericpowder from "@/assets/products/masala/turmeric powder.png";
 import gravyMasala from "@/assets/products/masala/gravy masala.png";
 import garamMasala from "@/assets/products/masala/garam masala.png";
 import chilliPowder from "@/assets/products/masala/chilli powder.png";
+import corianderMasala from "@/assets/products/masala/coriander masala.png";
+import cuminPowder from "@/assets/products/masala/cumin.png";
+import pepperPowder from "@/assets/products/masala/pepper powder.png";
 
 export interface Size {
   label: string;
@@ -218,6 +221,63 @@ Note: A minimum of two products must be ordered, with at least 200g each.`,
     ],
     hasOffer: true,
     offerText: "37% OFF",
+    featured: true,
+  },
+  {
+    id: "59",
+    name: "Coriander Powder",
+    category: "Masala",
+    price: 130,
+    originalPrice: 150,
+    description:
+      "Freshly ground coriander powder with a mellow aroma and balanced flavor, suitable for everyday curries, gravies, and dry masala prep.",
+    images: [corianderMasala],
+    variants: ["Coriander Powder"],
+    sizes: [
+      { label: "500g", offerPrice: 130, originalPrice: 150 },
+      { label: "200g", offerPrice: 54, originalPrice: 62 },
+      { label: "100g", offerPrice: 28, originalPrice: 32 },
+    ],
+    hasOffer: true,
+    offerText: "13% OFF",
+    featured: true,
+  },
+  {
+    id: "60",
+    name: "Cumin Powder",
+    category: "Masala",
+    price: 300,
+    originalPrice: 340,
+    description:
+      "Aromatic cumin powder made from selected seeds, ideal for tempering, masala bases, and daily South Indian and North Indian cooking.",
+    images: [cuminPowder],
+    variants: ["Cumin Powder"],
+    sizes: [
+      { label: "500g", offerPrice: 300, originalPrice: 340 },
+      { label: "200g", offerPrice: 124, originalPrice: 138 },
+      { label: "100g", offerPrice: 64, originalPrice: 72 },
+    ],
+    hasOffer: true,
+    offerText: "11% OFF",
+    featured: true,
+  },
+  {
+    id: "61",
+    name: "Black Pepper Powder",
+    category: "Masala",
+    price: 455,
+    originalPrice: 520,
+    description:
+      "Sharp and warm black pepper powder with consistent punch, suited for rasam, soups, stir-fries, and finishing seasoning.",
+    images: [pepperPowder],
+    variants: ["Black Pepper Powder"],
+    sizes: [
+      { label: "500g", offerPrice: 455, originalPrice: 520 },
+      { label: "200g", offerPrice: 189, originalPrice: 220 },
+      { label: "100g", offerPrice: 98, originalPrice: 112 },
+    ],
+    hasOffer: true,
+    offerText: "12% OFF",
     featured: true,
   },
 

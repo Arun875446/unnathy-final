@@ -2,74 +2,95 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight } from "lucide-react";
 import HeroCarousel from "@/components/HeroCarousel";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
-import { Button } from "@/components/ui/button";
+import { prefersReducedMotion } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const featuredRef = useRef<HTMLDivElement>(null);
   const categoriesRef = useRef<HTMLDivElement>(null);
+  const featuredProducts = products.filter((product) => product.featured);
+
+  const categoryMeta = [
+    {
+      name: "Nutrition",
+      description: "Health mixes and flours for simple everyday meals.",
+    },
+    {
+      name: "Masala",
+      description: "Spice powders made for balanced, familiar taste.",
+    },
+    {
+      name: "Tupperware",
+      description: "Storage and utility items that keep things organized.",
+    },
+  ].filter((category) => products.some((product) => product.category === category.name));
 
   useEffect(() => {
-    // Animate featured products section
-    if (featuredRef.current) {
-      gsap.fromTo(
-        featuredRef.current.querySelectorAll(".product-card"),
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: featuredRef.current,
-            start: "top 80%",
-          },
-        }
-      );
+    if (prefersReducedMotion()) {
+      return;
     }
 
-    // Animate categories section
-    if (categoriesRef.current) {
-      gsap.fromTo(
-        categoriesRef.current.children,
-        { scale: 0.9, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: "back.out(1.2)",
-          scrollTrigger: {
-            trigger: categoriesRef.current,
-            start: "top 75%",
-          },
-        }
-      );
-    }
+    const context = gsap.context(() => {
+      if (featuredRef.current) {
+        gsap.fromTo(
+          featuredRef.current.querySelectorAll(".product-card"),
+          { y: 34, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.74,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: featuredRef.current,
+              start: "top 82%",
+            },
+          }
+        );
+      }
+
+      if (categoriesRef.current) {
+        gsap.fromTo(
+          categoriesRef.current.children,
+          { y: 18, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.58,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: categoriesRef.current,
+              start: "top 84%",
+            },
+          }
+        );
+      }
+    });
+
+    return () => context.revert();
   }, []);
-
-  const featuredProducts = products.filter((p) => p.featured);
 
   return (
     <div className="min-h-screen">
-      {/* Hero Carousel */}
       <HeroCarousel />
 
-      {/* Featured Products */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Featured Collection</h2>
-          <p className="text-muted-foreground text-lg">
-            Discover our handpicked selection of premium products
+      <section className="layout-section layout-container">
+        <div className="mb-10 sm:mb-12">
+          <span className="section-eyebrow">Featured Collection</span>
+          <h2 className="mt-4">Top Picks This Season</h2>
+          <p className="section-copy mt-3">
+            These are the products most people ask for first.
           </p>
+          <div className="section-divider" />
         </div>
 
-        <div ref={featuredRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+        <div ref={featuredRef} className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
           {featuredProducts.map((product) => (
             <div key={product.id} className="product-card">
               <ProductCard product={product} />
@@ -77,53 +98,60 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <Link to="/products">
-            <Button className="btn-primary text-lg px-8 py-6">
-              View All Products
-            </Button>
-          </Link>
-        </div>
+        <Link to="/products" className="btn-primary inline-flex">
+          View All Products
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </section>
 
-      {/* Categories Section */}
-      <section className="bg-muted py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Shop by Category</h2>
-            <p className="text-muted-foreground text-lg">
-              Explore our diverse range of products
+      <section className="layout-section-tight">
+        <div className="layout-container">
+          <div className="royal-surface p-6 sm:p-8 lg:p-10">
+            <span className="section-eyebrow">Shop By Category</span>
+            <h2 className="mt-4">Find The Right Collection Quickly</h2>
+            <p className="section-copy mt-3">
+              Jump straight to the section you need and skip extra scrolling.
             </p>
-          </div>
+            <div className="section-divider" />
 
-          <div ref={categoriesRef} className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {["Clothing", "Accessories", "Jewelry", "Home Decor"].map((category) => (
-              <Link
-                key={category}
-                to={`/products?category=${category}`}
-                className="bg-card rounded-xl p-8 text-center hover:shadow-lg transition-all group"
-              >
-                <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                  {category}
-                </h3>
-              </Link>
-            ))}
+            <div ref={categoriesRef} className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {categoryMeta.map((category) => (
+                <Link key={category.name} to={`/products?category=${category.name}`} className="royal-card p-6">
+                  <h3 className="text-2xl">{category.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{category.description}</p>
+                  <p className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Explore {category.name}
+                    <ArrowRight className="h-4 w-4" />
+                  </p>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-12 text-center text-white">
-          <h2 className="text-4xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-lg mb-8 opacity-90">
-            Get in touch with us to learn more about our latest collections
+      <section className="layout-section layout-container">
+        <div className="rounded-2xl p-7 text-white sm:p-10 lg:p-12" style={{ background: "var(--gradient-lavender)" }}>
+          <span className="inline-flex rounded-full border border-white/40 px-3 py-1 text-caption font-semibold uppercase tracking-[0.16em] text-white/90">
+            Getting Started
+          </span>
+          <h2 className="mt-4 text-white">Not Sure What To Pick First?</h2>
+          <p className="mt-3 max-w-3xl text-white/90">
+            Open the product page, filter by category, and shortlist your items. Reach out after that and we will help
+            with the final list.
           </p>
-          <Link to="/contact">
-            <Button className="bg-background text-foreground hover:bg-background/90 text-lg px-8 py-6">
-              Contact Us
-            </Button>
-          </Link>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link to="/about" className="btn-secondary w-full sm:w-auto">
+              Learn About Us
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-white/50 bg-white px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-white/90 sm:w-auto"
+            >
+              Contact Team
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>
